@@ -1,0 +1,21 @@
+Running: C:\Verilog\14.6\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o D:/SCHOOL WORK/CECS 460 Labs/RECEIVE_ENGINE/shiftreg_tb_isim_beh.exe -prj D:/SCHOOL WORK/CECS 460 Labs/RECEIVE_ENGINE/shiftreg_tb_beh.prj work.shiftreg_tb work.glbl 
+ISim P.68d (signature 0x8ef4fb42)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Analyzing Verilog file "D:/SCHOOL WORK/CECS 460 Labs/RECEIVE_ENGINE/shiftreg.v" into library work
+Analyzing Verilog file "D:/SCHOOL WORK/CECS 460 Labs/RECEIVE_ENGINE/shiftreg_tb.v" into library work
+Analyzing Verilog file "C:/Verilog/14.6/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 180008 KB
+Fuse CPU Usage: 406 ms
+Compiling module shiftreg
+Compiling module shiftreg_tb
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 3 Verilog Units
+Built simulation executable D:/SCHOOL WORK/CECS 460 Labs/RECEIVE_ENGINE/shiftreg_tb_isim_beh.exe
+Fuse Memory Usage: 184460 KB
+Fuse CPU Usage: 453 ms

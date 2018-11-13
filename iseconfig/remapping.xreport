@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2018-11-12T17:19:03</DateModified>
+  <DateModified>2018-11-12T17:30:03</DateModified>
   <ModuleName>remapping</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>D:/SCHOOL WORK/CECS 460 Labs/RECEIVE_ENGINE/iseconfig/remapping.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>D:/SCHOOL WORK/CECS 460 Labs/RECEIVE_ENGINE\</ImplementationReportsDirectory>
+  <SavedFilePath>D:/SCHOOL WORK/CECS 460 Labs/.github/Rx-Engine/iseconfig/remapping.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>D:/SCHOOL WORK/CECS 460 Labs/.github/Rx-Engine\</ImplementationReportsDirectory>
   <DateInitialized>2018-11-02T00:10:06</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

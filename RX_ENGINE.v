@@ -30,10 +30,10 @@ module RX_ENGINE(CLK, RESET, RX, EIGHT, PEN, OHEL, BAUD, UART_DATA, RX_STATUS,
 	//===============================================================
 	// WIRES FOR THE STD
 	//===============================================================
-	reg n_state, state; 
-	reg n_out, out; 
+	reg [1:0] n_state, state; 
+	reg n_start, n_doit, start, doit; 
 	
-	parameter
+	parameter [1:0]
 	s0 = 2'b00, 
 	s1 = 2'b01, 
 	s2 = 2'b10; 
@@ -43,7 +43,6 @@ module RX_ENGINE(CLK, RESET, RX, EIGHT, PEN, OHEL, BAUD, UART_DATA, RX_STATUS,
 	//================================================================
 	wire 	btu, done; 
 	wire[19:0] baud_pick, half_baud_count; //wire to hold the value to be comapared
-	reg	doit, start; 
 	
 	reg [18:0]	n_count, count, baud_count;  
 	reg [3:0]	n_tally, tally; 
@@ -60,7 +59,6 @@ module RX_ENGINE(CLK, RESET, RX, EIGHT, PEN, OHEL, BAUD, UART_DATA, RX_STATUS,
 	// WIRES FOR REMAP COMBO
 	//===============================================================	
 	wire bit9, bit8, bit7; 
-	wire [7:0] out2TB; 
 	wire [6:0] out2Comp; 
 	reg [9:0] shiftBits; 
 	
@@ -89,14 +87,27 @@ module RX_ENGINE(CLK, RESET, RX, EIGHT, PEN, OHEL, BAUD, UART_DATA, RX_STATUS,
 	// inputs: RX, btu, done
 	// output: start, doit
 	always @(*) begin
-		start = 1'b0; 
-		doit = 1'b0; 
-		casez({RX, btu, done})
-			s0 : {n_state, start, doit} = ({3'b0??}) ? {s1, 1'b1, 1'b1} : {s0, 1'b0, 1'b0};
-			s1 : {n_state, start, doit} = ({3'b01?}) ? {s2, 1'b0, 1'b1} : {s1, 1'b0, 1'b0}; 
-			s2 : {n_state, start, doit} = ({3'b??0}) ? {s0, 1'b1, 1'b1} : {s1, 1'b0, 1'b0}; 
+		n_start = 1'b0; 
+		n_doit = 1'b0; 
+		case({state})
+			s0 : {n_state, n_start, n_doit} = (~RX) ?       {s1, 1'b1, 1'b1} : {s0, 1'b0, 1'b0};
+			s1 : {n_state, n_start, n_doit} = (~RX & btu) ? {s2, 1'b0, 1'b1} : {s1, 1'b1, 1'b1}; 
+			s2 : {n_state, n_start, n_doit} = (done) ? {s0, 1'b0, 1'b0} : {s2, 1'b0, 1'b1}; 
 		endcase
 	end
+	
+	// d-flop
+	always @(posedge CLK, posedge RESET)
+		if (RESET) begin
+			state <= 2'b00; 
+			start <= 1'b0; 
+			doit  <= 1'b0;
+		end else begin
+			state <= n_state; 
+			start <= n_start; 
+			doit  <= n_doit; 
+		end
+			
 
 //***************************************************************************************
 //***********CONTROL	UNIT****************************************************************
@@ -173,10 +184,6 @@ module RX_ENGINE(CLK, RESET, RX, EIGHT, PEN, OHEL, BAUD, UART_DATA, RX_STATUS,
 		
 		// assigning the done signal
 		assign done = (tally == result)	? 1'b1: 1'b0; 
-	
-//***************************************************************************************
-//**********************END of CONTROL UNIT**********************************************
-//***************************************************************************************	
 		
 //***************************************************************************************
 //**************************DATA PATH****************************************************
@@ -212,7 +219,7 @@ module RX_ENGINE(CLK, RESET, RX, EIGHT, PEN, OHEL, BAUD, UART_DATA, RX_STATUS,
 	assign bit8 = shiftBits[8];
 	assign bit7 = shiftBits[7]; 
 	
-	assign out2TB = shiftBits[7:0];
+	assign UART_DATA = shiftBits[7:0];
 	assign out2Comp = shiftBits[6:0]; 
 	
 	//===============================================================
@@ -284,6 +291,8 @@ module RX_ENGINE(CLK, RESET, RX, EIGHT, PEN, OHEL, BAUD, UART_DATA, RX_STATUS,
 		if (RESET)    ovf <= 1'b1; else 
 		if (rxrdyAnd) ovf <= 1'b1; else 
 		if (clr)	     ovf <= 1'b0;
-		else		     ovf <= ovf; 	
+		else		     ovf <= ovf; 
+
+	assign RX_STATUS = rxrdy; 
 	
 endmodule

@@ -1,0 +1,10 @@
+Command line:
+   RX_ENGINE_TB_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  57234
+
+Mon Nov 12 19:34:57 2018
+
+
+ Elaboration Time: 0.125 sec

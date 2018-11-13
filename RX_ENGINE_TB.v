@@ -58,17 +58,21 @@ always #5 CLK = ~CLK;
 	initial begin
 		// Initialize Inputs
 		CLK = 0;
-		RESET = 0;
-		RX = 0;
+		RESET = 1;
+		RX = 1;
 		EIGHT = 0;
 		PEN = 0;
 		OHEL = 0;
-		BAUD = 0;
+		BAUD = 1001;
 		port_id = 0;
-		read_strobe = 0;
+		read_strobe = 1;
 
 		// Wait 100 ns for global reset to finish
 		#100;
+		RESET = 0; 
+		#10; 
+		RX = 0; 
+		
         
 		// Add stimulus here
 

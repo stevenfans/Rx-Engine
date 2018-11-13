@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="D:/SCHOOL WORK/CECS 460 Labs/.github/Rx-Engine/RX_ENGINE_TB_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="RX_ENGINE_TB" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="25" />
+   <wvobject fp_name="/RX_ENGINE_TB/UART_DATA" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">UART_DATA[7:0]</obj_property>
+      <obj_property name="ObjectShortName">UART_DATA[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/RX_STATUS" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RX_STATUS</obj_property>
+      <obj_property name="ObjectShortName">RX_STATUS</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/RESET" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RESET</obj_property>
+      <obj_property name="ObjectShortName">RESET</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/RX" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RX</obj_property>
+      <obj_property name="ObjectShortName">RX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/EIGHT" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">EIGHT</obj_property>
+      <obj_property name="ObjectShortName">EIGHT</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/PEN" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">PEN</obj_property>
+      <obj_property name="ObjectShortName">PEN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/OHEL" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">OHEL</obj_property>
+      <obj_property name="ObjectShortName">OHEL</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/BAUD" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">BAUD[3:0]</obj_property>
+      <obj_property name="ObjectShortName">BAUD[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/port_id" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">port_id[3:0]</obj_property>
+      <obj_property name="ObjectShortName">port_id[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/read_strobe" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">read_strobe</obj_property>
+      <obj_property name="ObjectShortName">read_strobe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/uut/start" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/uut/doit" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">doit</obj_property>
+      <obj_property name="ObjectShortName">doit</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/uut/state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">state[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/uut/n_start" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">n_start</obj_property>
+      <obj_property name="ObjectShortName">n_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/uut/n_doit" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">n_doit</obj_property>
+      <obj_property name="ObjectShortName">n_doit</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/uut/n_state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">n_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">n_state[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider21" type="divider">
+      <obj_property name="label">btu counter here</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/uut/btu" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">btu</obj_property>
+      <obj_property name="ObjectShortName">btu</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/uut/baud_count" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">baud_count[18:0]</obj_property>
+      <obj_property name="ObjectShortName">baud_count[18:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/uut/count" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">count[18:0]</obj_property>
+      <obj_property name="ObjectShortName">count[18:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider44" type="divider">
+      <obj_property name="label">done counter here</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/uut/done" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RX_ENGINE_TB/uut/tally" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">tally[3:0]</obj_property>
+      <obj_property name="ObjectShortName">tally[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider47" type="divider">
+      <obj_property name="label">New Divider</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+</wave_config>

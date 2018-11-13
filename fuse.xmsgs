@@ -5,5 +5,8 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLCompiler" num="188" delta="unknown" >"D:/SCHOOL WORK/CECS 460 Labs/.github/Rx-Engine/RX_ENGINE.v" Line 250: Actual bit length <arg fmt="%d" index="1">7</arg> differs from formal bit length <arg fmt="%d" index="2">1</arg>
+</msg>
+
 </messages>
 

@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "D:/SCHOOL WORK/CECS 460 Labs/RECEIVE_ENGINE/shiftreg_tb_isim_beh.exe" -prj "D:/SCHOOL WORK/CECS 460 Labs/RECEIVE_ENGINE/shiftreg_tb_beh.prj" "work.shiftreg_tb" "work.glbl" 
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "D:/SCHOOL WORK/CECS 460 Labs/RECEIVE_ENGINE/RX_ENGINE_isim_beh.exe" -prj "D:/SCHOOL WORK/CECS 460 Labs/RECEIVE_ENGINE/RX_ENGINE_beh.prj" "work.RX_ENGINE" "work.glbl" 

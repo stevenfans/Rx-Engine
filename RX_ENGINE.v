@@ -18,10 +18,11 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module RX_ENGINE(CLK, RESET, RX, EIGHT, PEN, OHEL, BAUD, UART_DATA, RX_STATUS);
+module RX_ENGINE(CLK, RESET, RX, EIGHT, PEN, OHEL, BAUD, UART_DATA, RX_STATUS, 
+						port_id, read_strobe);
 
-	input CLK, RESET, RX, EIGHT, PEN, OHEL; 
-	input [3:0]	BAUD; 
+	input CLK, RESET, RX, EIGHT, PEN, OHEL, read_strobe; 
+	input [3:0]	BAUD, port_id; 
 	
 	output RX_STATUS; 
 	output [7:0]	UART_DATA; 
@@ -53,6 +54,7 @@ module RX_ENGINE(CLK, RESET, RX, EIGHT, PEN, OHEL, BAUD, UART_DATA, RX_STATUS);
 	//===============================================================	
 	wire btstart; 
 	reg [9:0] shiftout;
+	reg [9:0] store; 
 		
 	//===============================================================
 	// WIRES FOR REMAP COMBO
@@ -65,7 +67,19 @@ module RX_ENGINE(CLK, RESET, RX, EIGHT, PEN, OHEL, BAUD, UART_DATA, RX_STATUS);
 	//===============================================================
 	// WIRES FOR BOTTOM THREE MUXES
 	//===============================================================
-	wire pg_Sel, pb_Sel, sb_Sel; 
+	wire pg_Sel, pb_Sel; 
+	reg sb_Sel; 
+	
+	//===============================================================
+	// WIRES FOR BOTTOM THREE MUXES
+	//===============================================================
+	wire xor_1, xor_2, evenMux, clr; 
+	wire penAnd, sbAnd, rxrdyAnd; 
+	
+	//===============================================================
+	// WIRES FOR BOTTOM THREE MUXES
+	//===============================================================
+	reg rxrdy, perr, ferr, ovf; 
 	
 	//==============================================================
 	// 				STD
@@ -188,7 +202,7 @@ module RX_ENGINE(CLK, RESET, RX, EIGHT, PEN, OHEL, BAUD, UART_DATA, RX_STATUS);
 	always @(*)
 		case ({EIGHT, PEN})
 			2'b00: shiftBits = {stop,store[6:0],   1'b1, 1'b1};
-			2'b01: shiftBits = {stop,store, shiftData[6:0], 1'b1}; 
+			2'b01: shiftBits = {stop,store, store[6:0], 1'b1}; 
 			2'b10: shiftBits = {stop,store[7:0], 1'b1}; 
 			2'b11: shiftBits = {stop,parity,store[7:0]};
 			default shiftBits = 10'h3FF; 
@@ -214,18 +228,62 @@ module RX_ENGINE(CLK, RESET, RX, EIGHT, PEN, OHEL, BAUD, UART_DATA, RX_STATUS);
 	// stop bit select
 	always @(*)
 		case({EIGHT, PEN})
-			2'b00 : sb_sel = bit7; 
-			2'b01 : sb_sel = bit8; 
-			2'b10 : sb_sel = bit9; 
-			2'b11 : sb_sel = bit8;
-			default : sb_sel = 1'b0; 
+			2'b00 : sb_Sel = bit7; 
+			2'b01 : sb_Sel = bit8; 
+			2'b10 : sb_Sel = bit9; 
+			2'b11 : sb_Sel = bit8;
+			default : sb_Sel = 1'b0; 
 		endcase
 		
 	//===============================================================
 	// 	THE FOUR AND GATES
 	//===============================================================
 	
+	// first xor logic
+	xor(xor_1, out2Comp, pg_Sel); 
 	
-		
+	// 0 = even and 1 = odd
+	assign evenMux = (OHEL) ? ~xor_1 : xor_1; 
+	
+	// second xor logic
+	xor(xor_2, pb_Sel, evenMux);
+	
+	//PEN and gate
+	and (penAnd, PEN, xor_2, done);
+	and (sbAnd, done, !sb_sel);
+	and (rxrdyAnd, done, rxrdy); 
+	assign clr = ((port_id == 0000) & (read_strobe)); 
+	
+	//===============================================================
+	// 	THE FOUR SR FLOPS
+	//===============================================================
+	
+	// RxRdy  SR
+	always @(posedge CLK, posedge RESET)
+		if (RESET) rxrdy <= 1'b1; else 
+		if (done)  rxrdy <= 1'b1; else 
+		if (clr)	  rxrdy <= 1'b0;
+		else		  rxrdy <= rxrdy; 
+	
+	// PERR SR
+	always @(posedge CLK, posedge RESET)
+		if (RESET)  perr <= 1'b1; else 
+		if (penAnd) perr <= 1'b1; else 
+		if (clr)	   perr <= 1'b0;
+		else		   perr <= perr;
+
+	// FERR SR
+	always @(posedge CLK, posedge RESET)
+		if (RESET)  ferr <= 1'b1; else 
+		if (sbAnd)  ferr <= 1'b1; else 
+		if (clr)	   ferr <= 1'b0;
+		else		   ferr <= ferr; 		
+	
+	// OVF SR
+	always @(posedge CLK, posedge RESET)
+		if (RESET)    ovf <= 1'b1; else 
+		if (rxrdyAnd) ovf <= 1'b1; else 
+		if (clr)	     ovf <= 1'b0;
+		else		     ovf <= ovf; 	
 	
 endmodule

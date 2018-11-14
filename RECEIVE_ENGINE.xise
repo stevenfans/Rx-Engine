@@ -43,6 +43,14 @@
       <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="22"/>
       <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="22"/>
     </file>
+    <file xil_pn:name="TRANSMIT_ENG.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="29"/>
+    </file>
+    <file xil_pn:name="UART.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="30"/>
+    </file>
   </files>
 
   <properties>

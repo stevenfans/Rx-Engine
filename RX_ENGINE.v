@@ -19,13 +19,15 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module RX_ENGINE(CLK, RESET, RX, EIGHT, PEN, OHEL, BAUD, UART_DATA, RX_STATUS, 
-						port_id, read_strobe);
+						PERR, FERR, OVF, reads_0);//port_id, read_strobe);
 
-	input CLK, RESET, RX, EIGHT, PEN, OHEL, read_strobe; 
-	input [3:0]	BAUD, port_id; 
+	input CLK, RESET, RX, EIGHT, PEN, OHEL, reads_0;
+	input [3:0]	BAUD; //, port_id; 
 	
-	output RX_STATUS; 
-	output [7:0]	UART_DATA; 
+			//RX_STATUS = RX_RDY
+	output 	  RX_STATUS; 
+	output reg PERR, FERR, OVF; 
+	output [7:0] UART_DATA; 
 	
 	//===============================================================
 	// WIRES FOR THE STD
@@ -193,7 +195,7 @@ module RX_ENGINE(CLK, RESET, RX, EIGHT, PEN, OHEL, BAUD, UART_DATA, RX_STATUS,
 	// 	SHIFT REGISTER
 	//===============================================================
 	
-	and startgate (btstart, btu, !start);
+	and (		btstart, btu, !start);
 	
 	always @ (posedge CLK, posedge RESET)
 		if 	  (RESET)		store <= 10'h3FF;
@@ -259,7 +261,7 @@ module RX_ENGINE(CLK, RESET, RX, EIGHT, PEN, OHEL, BAUD, UART_DATA, RX_STATUS,
 	and (penAnd, PEN, xor_2, done);
 	and (sbAnd, done, !sb_sel);
 	and (rxrdyAnd, done, rxrdy); 
-	assign clr = ((port_id == 0000) & (read_strobe)); 
+	assign clr = (reads_0) ? 1'b1 : 1'b0; 
 	
 	//===============================================================
 	// 	THE FOUR SR FLOPS
@@ -274,24 +276,24 @@ module RX_ENGINE(CLK, RESET, RX, EIGHT, PEN, OHEL, BAUD, UART_DATA, RX_STATUS,
 	
 	// PERR SR
 	always @(posedge CLK, posedge RESET)
-		if (RESET)  perr <= 1'b1; else 
-		if (penAnd) perr <= 1'b1; else 
-		if (clr)	   perr <= 1'b0;
-		else		   perr <= perr;
+		if (RESET)  PERR <= 1'b1; else 
+		if (penAnd) PERR <= 1'b1; else 
+		if (clr)	   PERR <= 1'b0;
+		else		   PERR <= PERR;
 
 	// FERR SR
 	always @(posedge CLK, posedge RESET)
-		if (RESET)  ferr <= 1'b1; else 
-		if (sbAnd)  ferr <= 1'b1; else 
-		if (clr)	   ferr <= 1'b0;
-		else		   ferr <= ferr; 		
+		if (RESET)  FERR <= 1'b1; else 
+		if (sbAnd)  FERR <= 1'b1; else 
+		if (clr)	   FERR <= 1'b0;
+		else		   FERR <= FERR; 		
 	
 	// OVF SR
 	always @(posedge CLK, posedge RESET)
-		if (RESET)    ovf <= 1'b1; else 
-		if (rxrdyAnd) ovf <= 1'b1; else 
-		if (clr)	     ovf <= 1'b0;
-		else		     ovf <= ovf; 
+		if (RESET)    OVF <= 1'b1; else 
+		if (rxrdyAnd) OVF <= 1'b1; else 
+		if (clr)	     OVF <= 1'b0;
+		else		     OVF <= OVF; 
 
 	assign RX_STATUS = rxrdy; 
 	

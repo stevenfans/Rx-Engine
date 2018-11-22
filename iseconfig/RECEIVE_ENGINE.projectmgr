@@ -13,7 +13,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000000fa000000020000000000000000000000000200000064ffffffff000000810000000300000002000000fa0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000014f000000020000000000000000000000000200000064ffffffff0000008100000003000000020000014f0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
       <CurrentItem>remapping (D:/SCHOOL WORK/CECS 460 Labs/.github/Rx-Engine/remapping.v)</CurrentItem>
    </ItemView>
@@ -77,17 +77,19 @@
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/UART D:|SCHOOL WORK|CECS 460 Labs|.github|Rx-Engine|UART.v</ClosedNode>
          <ClosedNode>/shiftreg_tb D:|SCHOOL WORK|CECS 460 Labs|.github|Rx-Engine|shiftreg_tb.v</ClosedNode>
          <ClosedNode>/shiftreg_tb D:|SCHOOL WORK|CECS 460 Labs|RECEIVE_ENGINE|shiftreg_tb.v</ClosedNode>
+         <ClosedNode>/tramelblaze_top D:|SCHOOL WORK|CECS 460 Labs|.github|Rx-Engine|tramelblaze_top.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>uut - RX_ENGINE (D:/SCHOOL WORK/CECS 460 Labs/.github/Rx-Engine/RX_ENGINE.v)</SelectedItem>
+         <SelectedItem>tramelblaze - tramelblaze (D:/SCHOOL WORK/CECS 460 Labs/.github/Rx-Engine/tramelblaze.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000101000000020000000000000000000000000200000064ffffffff000000810000000300000002000001010000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000010a000000020000000000000000000000000200000064ffffffff0000008100000003000000020000010a0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>uut - RX_ENGINE (D:/SCHOOL WORK/CECS 460 Labs/.github/Rx-Engine/RX_ENGINE.v)</CurrentItem>
+      <CurrentItem>tramelblaze - tramelblaze (D:/SCHOOL WORK/CECS 460 Labs/.github/Rx-Engine/tramelblaze.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -95,26 +97,26 @@
          <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f5000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f50000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Simulate Behavioral Model</SelectedItem>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f5000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f50000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Simulate Behavioral Model</CurrentItem>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="PostTransSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>

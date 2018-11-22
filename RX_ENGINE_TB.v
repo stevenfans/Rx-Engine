@@ -38,6 +38,9 @@ module RX_ENGINE_TB;
 	// Outputs
 	wire [7:0] UART_DATA;
 	wire RX_STATUS;
+	wire PERR;
+	wire FERR; 
+	wire OVF; 
 
 	// Instantiate the Unit Under Test (UUT)
 	RX_ENGINE uut (
@@ -49,9 +52,13 @@ module RX_ENGINE_TB;
 		.OHEL(OHEL), 
 		.BAUD(BAUD), 
 		.UART_DATA(UART_DATA), 
-		.RX_STATUS(RX_STATUS), 
-		.port_id(port_id), 
-		.read_strobe(read_strobe)
+		.RX_STATUS(RX_STATUS),
+		.PERR(PERR),
+		.FERR(FERR),
+		.OVF(OVF)
+		
+	//	.port_id(port_id)//, 
+		//.read_strobe(read_strobe)
 	);
 
 always #5 CLK = ~CLK; 
@@ -72,9 +79,6 @@ always #5 CLK = ~CLK;
 		RESET = 0; 
 		#10; 
 		RX = 0; 
-		
-        
-		// Add stimulus here
 
 	end
       

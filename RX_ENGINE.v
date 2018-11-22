@@ -249,7 +249,7 @@ module RX_ENGINE(CLK, RESET, RX, EIGHT, PEN, OHEL, BAUD, UART_DATA, RX_STATUS,
 	//===============================================================
 	
 	// first xor logic
-	xor(xor_1, out2Comp, pg_Sel); 
+ 	xor(xor_1, out2Comp, pg_Sel); 
 	
 	// 0 = even and 1 = odd
 	assign evenMux = (OHEL) ? ~xor_1 : xor_1; 

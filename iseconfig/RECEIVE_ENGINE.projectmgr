@@ -77,19 +77,19 @@
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/RX_ENGINE_TB D:|SCHOOL WORK|CECS 460 Labs|.github|Rx-Engine|RX_ENGINE_TB.v</ClosedNode>
          <ClosedNode>/UART D:|SCHOOL WORK|CECS 460 Labs|.github|Rx-Engine|UART.v</ClosedNode>
          <ClosedNode>/shiftreg_tb D:|SCHOOL WORK|CECS 460 Labs|.github|Rx-Engine|shiftreg_tb.v</ClosedNode>
          <ClosedNode>/shiftreg_tb D:|SCHOOL WORK|CECS 460 Labs|RECEIVE_ENGINE|shiftreg_tb.v</ClosedNode>
-         <ClosedNode>/tramelblaze_top D:|SCHOOL WORK|CECS 460 Labs|.github|Rx-Engine|tramelblaze_top.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>tramelblaze - tramelblaze (D:/SCHOOL WORK/CECS 460 Labs/.github/Rx-Engine/tramelblaze.v)</SelectedItem>
+         <SelectedItem>xc7a100t-3csg324</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000010a000000020000000000000000000000000200000064ffffffff0000008100000003000000020000010a0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000012e000000020000000000000000000000000200000064ffffffff0000008100000003000000020000012e0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>tramelblaze - tramelblaze (D:/SCHOOL WORK/CECS 460 Labs/.github/Rx-Engine/tramelblaze.v)</CurrentItem>
+      <CurrentItem>xc7a100t-3csg324</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
